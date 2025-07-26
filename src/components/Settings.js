@@ -40,6 +40,7 @@ function Settings({ setQuizStarted, setQuestions }) {
             onChange={(e) => setAmount(e.target.value)}
           />
         </label>
+
         <label>
           Category
           <select value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -49,6 +50,7 @@ function Settings({ setQuizStarted, setQuestions }) {
             <option value="21">Sports</option>
           </select>
         </label>
+
         <label>
           Difficulty
           <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
@@ -57,6 +59,7 @@ function Settings({ setQuizStarted, setQuestions }) {
             <option value="hard">Hard</option>
           </select>
         </label>
+
         <button onClick={fetchQuestions}>Start Quiz</button>
       </div>
     </div>
