@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import QuestionCard from "./QuestionCard";
 
-
 function Quiz({ questions, setScore, setShowResult }) {
   const [currentQ, setCurrentQ] = useState(0);
   const [timer, setTimer] = useState(15);
@@ -9,7 +8,7 @@ function Quiz({ questions, setScore, setShowResult }) {
 
   const [animateQuestion, setAnimateQuestion] = useState(false);
   const alarmRef = useRef(null);
-  const hasPlayedRef = useRef(false); // per evitare loop
+  const hasPlayedRef = useRef(false);
 
   useEffect(() => {
     setAnimateQuestion(true);
@@ -31,6 +30,7 @@ function Quiz({ questions, setScore, setShowResult }) {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     alarmRef.current = new Audio("/alarm.mp3");
 
@@ -43,13 +43,11 @@ function Quiz({ questions, setScore, setShowResult }) {
           return TIMER_DURATION;
         }
 
-        // Play sound at 5s
         if (prev === 5 && !hasPlayedRef.current) {
           alarmRef.current.play();
           hasPlayedRef.current = true;
         }
 
-        // Stop sound below 2s
         if (prev === 1 && hasPlayedRef.current) {
           alarmRef.current.pause();
           alarmRef.current.currentTime = 0;
