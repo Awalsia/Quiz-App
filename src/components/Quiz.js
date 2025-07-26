@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import QuestionCard from "./QuestionCard";
-import Result from "./Result";
+
 
 function Quiz({ questions, setScore, setShowResult }) {
   const [currentQ, setCurrentQ] = useState(0);
